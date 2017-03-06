@@ -114,18 +114,30 @@
 
 
 
-    <script src="~/Script/Index.js" charset="utf-8"></script>
-    <script src="~/Script/WeekDays.js"></script>    
-    <script src="~/Script/RosterEvents.js" charset="utf-8"></script>
+    <script id="innerDivTemplate" type="text/x-kendo-template">
+        <div class='innerdiv'>
+            <p>#= startTime # - #= finishTime #</p>
+            <span class='glyphicon glyphicon-remove'/>
+        </div>
+   </script>
 
-    <script>
-        //im sure we tried this before didnt we? anyway, it works now.
-        $(document).ready(function () {
-            viewingDate = getCurrentMonday()
-            updateWeekButtons();
-            initialDateLine();
-        });
-    </script>
+
+
+        <script src="~/Script/Index.js" charset="utf-8"></script>
+        <script src="~/Script/WeekDays.js"></script>
+        <script src="~/Script/RosterEvents.js" charset="utf-8"></script>
+
+
+
+
+        <script>
+            //im sure we tried this before didnt we? anyway, it works now.
+            $(document).ready(function () {
+                viewingDate = getCurrentMonday()
+                updateWeekButtons();
+                initialDateLine();
+            });
+        </script>
 
 
 </body>

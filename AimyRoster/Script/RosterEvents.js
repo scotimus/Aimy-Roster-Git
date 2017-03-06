@@ -1,15 +1,26 @@
 ﻿$(function () {
-    //Add Event
-    $(".glyphicon-plus").click(function () {
-        var startTime = $('#startTime').val();
-        var finishTime = $('#finishTime').val();
+    templateLoader.loadExtTemplate("feedItemTemplate.tmpl.htm");
 
-        if (finishTime || startTime) {
-            var div =
-            $("<div class='innerdiv'>" + startTime + " - " + finishTime + "<span class='glyphicon glyphicon-remove'></div>");
-            $(this).before(div);
+    //Add Event
+    $(".glyphicon-plus").click(function ()
+    {
+        if ($('#startTime').val() && $('#finishTime').val() )
+        {
+            var templateData =
+            {
+                startTime: $('#startTime').val(),
+                finishTime: $('#finishTime').val(),
+            }
+
+            //the template is defined in the index
+            var innerDivTemplate = kendo.template($("#innerDivTemplate").html());
+            var result = innerDivTemplate(templateData);
+
+        
+            $(this).before(result);
         }
-        else {
+        else
+        {
             window.alert("Please select a time");
         }
 
