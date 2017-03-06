@@ -118,6 +118,14 @@
     <script src="~/Script/WeekDays.js"></script>    
     <script src="~/Script/RosterEvents.js" charset="utf-8"></script>
 
+    <script>
+        //im sure we tried this before didnt we? anyway, it works now.
+        $(document).ready(function () {
+            viewingDate = getCurrentMonday()
+            updateWeekButtons();
+            initialDateLine();
+        });
+    </script>
 
 
 </body>
