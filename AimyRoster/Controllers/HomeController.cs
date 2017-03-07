@@ -27,14 +27,19 @@ namespace AimyRoster.Controllers
             return Json(result,JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetStaff()
+        public ActionResult GetStaff(int getSiteId)
         {
-            var result = db.Staffs.Select(x => new StaffModelView()
-            {
-                Name = x.Name,
-                SiteId = x.SiteId,
-                SiteName = x.SiteName
-            }).AsEnumerable();
+            var dbconn = new RosterEntities();
+            //var result = db.Staffs.Select(x => new StaffModelView()
+            var result = 
+                (from Staffs in dbconn.Staffs
+                 where Staffs.SiteId == getSiteId
+                 select new StaffModelView
+                 {
+                    Name = Staffs.Name,
+                    SiteId = Staffs.SiteId,
+                    SiteName = Staffs.SiteName
+                }).AsEnumerable();
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
