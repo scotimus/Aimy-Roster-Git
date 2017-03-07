@@ -65,51 +65,21 @@
     </div>
 
     
-
     <script id="template" type="text/x-kendo-template">
-        <tr data-uid="#= uid #" class="staff-row">
-            <tr id="dateHeader">
-                <td style="text-align:left; "><strong>#: Name #</strong></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-                <td>
-                    <div class="add-roster-wrapper">
-                        <span class="glyphicon glyphicon-plus add-roster-btn"></span>
-                    </div>
-                </td>
-            </tr>
+        <tr>
+            <td class="nameRow" colspan="7">
+                <strong>#: name #</strong>
+            </td>
         </tr>
-
+        <tr>
+            # for (var i = 0; i < 7; i++) {#
+				<td data-weekDayNum="#: i #" data-rowId="#: uid #">
+				  <div class="add-roster-wrapper">
+					<span class="glyphicon glyphicon-plus add-roster-btn"></span>
+				  </div>
+				</td>
+			# } #
+        </tr>
     </script>
 
 
